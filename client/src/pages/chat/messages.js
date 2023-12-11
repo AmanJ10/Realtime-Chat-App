@@ -6,7 +6,7 @@ const Messages = ({ socket }) => {
 
   const messagesColumnRef = useRef(null);
 
-  // Runs whenever a socket event is recieved from the server
+
   useEffect(() => {
     socket.on('receive_message', (data) => {
       console.log(data);
@@ -20,7 +20,7 @@ const Messages = ({ socket }) => {
       ]);
     });
 
-    // Remove event listener on component unmount
+
     return () => socket.off('receive_message');
   }, [socket]);
 
@@ -29,7 +29,7 @@ const Messages = ({ socket }) => {
     socket.on('last_100_messages', (last100Messages) => {
       console.log('Last 100 messages:', JSON.parse(last100Messages));
       last100Messages = JSON.parse(last100Messages);
-      // Sort these messages by __createdtime__
+
       last100Messages = sortMessagesByDate(last100Messages);
       setMessagesReceived((state) => [...last100Messages, ...state]);
     });
@@ -37,7 +37,7 @@ const Messages = ({ socket }) => {
     return () => socket.off('last_100_messages');
   }, [socket]);
 
-  // Scroll to the most recent message
+
   useEffect(() => {
     messagesColumnRef.current.scrollTop =
       messagesColumnRef.current.scrollHeight;

@@ -6,36 +6,41 @@
   gap: 20px;
 }
 
-/* Room and users component */
+
 .roomAndUsersColumn {
   border-right: 2px solid #dfdfdf;
 }
+
 .roomTitle {
   margin-bottom: 60px;
   text-transform: uppercase;
   font-size: 2rem;
   color: rgb(0, 24, 111);
 }
+
 .usersTitle {
   font-size: 1.2rem;
-  color:  rgb(0, 24, 111);
+  color: rgb(0, 24, 111);
 }
+
 .usersList {
   list-style-type: none;
   padding-left: 0;
   margin-bottom: 60px;
   color: rgb(0, 24, 111);
 }
+
 .usersList li {
   margin-bottom: 12px;
 }
 
-/* Messages */
+
 .messagesColumn {
   height: 85vh;
   overflow: auto;
   padding: 10px 10px 10px 40px;
 }
+
 .message {
   background: rgb(0, 24, 111);
   border-radius: 6px;
@@ -43,18 +48,21 @@
   max-width: 600px;
   padding: 12px;
 }
+
 .msgMeta {
   color: rgb(153, 217, 234);
   font-size: 0.75rem;
 }
+
 .msgText {
   color: #fff;
 }
 
-/* Message input and button */
+
 .sendMessageContainer {
   padding: 16px 20px 20px 16px;
 }
+
 .messageInput {
   padding: 14px;
   margin-right: 16px;

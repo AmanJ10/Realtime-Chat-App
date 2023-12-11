@@ -27,7 +27,7 @@ function App() {
               />
             }
           />
-          {/* Add this */}
+          { }
           <Route
             path='/chat'
             element={<Chat username={username} room={room} socket={socket} />}
