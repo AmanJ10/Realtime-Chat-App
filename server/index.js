@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -5,22 +6,21 @@ const cors = require('cors');
 const { Server } = require('socket.io');
 const harperSaveMessage = require('./services/harper-save-message');
 const harperGetMessages = require('./services/harper-get-messages');
-const leaveRoom = require('./utils/leave-room');
+const leaveRoom = require('./utils/leave-room'); // Add this
 
-app.use(cors());
+app.use(cors()); // Add cors middleware
 
 const server = http.createServer(app); // Add this
 
-// Create an io server and allow for CORS from https://chat-application-omti.onrender.com with GET and POST methods
+// Create an io server and allow for CORS from http://localhost:3000 with GET and POST methods
 const io = new Server(server, {
   cors: {
-    origin: process.env.ALLOWED_ORIGIN || 'https://chat-application-omti.onrender.com',
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
   },
 });
 
-
-const CHAT_BOT = 'FreeChat';
+const CHAT_BOT = 'ChatBot';
 let chatRoom = ''; // E.g. javascript, node,...
 let allUsers = []; // All users in current chat room
 
@@ -98,8 +98,4 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 4000;
-
-server.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+server.listen(4000, () => 'Server is running on port 4000');
